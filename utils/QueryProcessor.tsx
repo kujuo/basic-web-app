@@ -12,5 +12,12 @@ export default function QueryProcessor(query: string): string {
     let answer = parseInt(splitted[2]) + parseInt(splitted[4]);
     return answer.toString();
   }
+  if (query.toLowerCase().includes("largest")) {
+    query = query.toLowerCase();
+    let splitted: string[] = query.split("", 5);
+    parseInt(splitted[4].substring(0, -1))
+    let answer = parseInt(splitted[2]) + parseInt(splitted[4]);
+    return answer.toString();
+  }
   return "";
 }
