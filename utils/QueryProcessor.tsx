@@ -41,6 +41,31 @@ export default function QueryProcessor(query: string): string {
     }
     return answer
   }
+  function isPrime(num: number) {
+    var sqrtnum=Math.floor(Math.sqrt(num));
+      var prime = num != 1;
+      for(var i=2; i<sqrtnum+1; i++) { // sqrtnum+1
+          if(num % i == 0) {
+              prime = false;
+              break;
+          }
+      }
+      return prime;
+  }
+  
+  if (query.toLowerCase().includes("prime")) {
+    query = query.toLowerCase();
+    let splitted: string[] = query.split(/[:,]/);
+    let answer = "";
+    for (let i = 1; i < splitted.length; i++) {
+      let num = splitted[i]
+      if (isPrime(parseInt(num))) {
+        if (i != splitted.length-1 && answer.length > 0) answer += ", "
+        answer += parseInt(num).toString()
+      }
+    }
+    return answer
+  }
 
   if (query.toLowerCase().includes("minus")) {
     query = query.toLowerCase();
