@@ -6,6 +6,10 @@ export default function QueryProcessor(query: string): string {
       "writer in the English language and the world's pre-eminent dramatist."
     );
   }
+  if (query.toLowerCase().includes("name")) {
+    return (
+      "William Shakespeare (26 April 1564 - 23 April 1616)"     );
+  }
 
   return "";
 }
