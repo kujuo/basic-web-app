@@ -30,11 +30,16 @@ export default function QueryProcessor(query: string): string {
   }
   if (query.toLowerCase().includes("square")) {
     query = query.toLowerCase();
-    let splitted: string[] = query.split(new RegExp("[,:]"));
-    return splitted[0]
-    splitted[0] = splitted[0].substring(-1)
-    let answer = parseInt(splitted[2]) * parseInt(splitted[0]);
-    return answer.toString();
+    let splitted: string[] = query.split(/[:,]/);
+    let answer = "";
+    for (let i = 1; i < splitted.length; i++) {
+      let num = splitted[i]
+      if (Math.sqrt(parseInt(num)) % 1 === 0 && Number.isInteger(Math.cbrt(parseInt(num)))) {
+        if (i != splitted.length-1 && answer.length > 0) answer += ", "
+        answer += parseInt(num).toString()
+      }
+    }
+    return answer
   }
 
   if (query.toLowerCase().includes("minus")) {
