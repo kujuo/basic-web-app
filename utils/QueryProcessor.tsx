@@ -8,8 +8,8 @@ export default function QueryProcessor(query: string): string {
   }
   if (query.toLowerCase().includes("name")) {
     return (
-      "William Shakespeare (26 April 1564 - 23 April 1616)"     );
+      "cool");
   }
 
-  return "hi";
+  return "";
 }
