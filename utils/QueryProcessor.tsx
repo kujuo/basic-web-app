@@ -6,10 +6,6 @@ export default function QueryProcessor(query: string): string {
       "writer in the English language and the world's pre-eminent dramatist."
     );
   }
-  if (query.toLowerCase().includes("")) {
-    return (
-      "cool");
-  }
   if (query.toLowerCase().includes("plus")) {
     query = query.toLowerCase();
     let splitted: string[] = query.split("", 5);
