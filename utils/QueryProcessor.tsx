@@ -8,7 +8,8 @@ export default function QueryProcessor(query: string): string {
   }
   if (query.toLowerCase().includes("plus")) {
     query = query.toLowerCase();
-    let splitted: string[] = query.split("", 5);
+    let splitted: string[] = query.split(" ");
+    // return splitted[2] + splitted[4]
     let answer = parseInt(splitted[2]) + parseInt(splitted[4]);
     return answer.toString();
   }
