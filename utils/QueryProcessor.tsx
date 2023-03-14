@@ -9,15 +9,23 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("plus")) {
     query = query.toLowerCase();
     let splitted: string[] = query.split(" ");
-    // return splitted[2] + splitted[4]
     let answer = parseInt(splitted[2]) + parseInt(splitted[4]);
     return answer.toString();
   }
   if (query.toLowerCase().includes("largest")) {
     query = query.toLowerCase();
-    let splitted: string[] = query.split("", 5);
-    parseInt(splitted[4].substring(0, -1))
-    let answer = parseInt(splitted[2]) + parseInt(splitted[4]);
+    // Which of the following numbers is the largest: 56, 93, 17?
+    let splitted: string[] = query.split(" ");
+    let one = parseInt(splitted[8]);
+    let two = parseInt(splitted[9]);
+    let three = parseInt(splitted[9]);
+    return Math.max(one, two, three).toString()
+  }
+
+  if (query.toLowerCase().includes("multiplied")) {
+    query = query.toLowerCase();
+    let splitted: string[] = query.split(" ");
+    let answer = parseInt(splitted[2]) * parseInt(splitted[5]);
     return answer.toString();
   }
   return "";
